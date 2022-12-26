@@ -7,7 +7,7 @@ using VoiceTexterBot.Models;
 
 namespace VoiceTexterBot.Services
 {
-    internal interface IStorage
+    public interface IStorage
     {
         // <summary>
         /// Получение сессии пользователя по идентификатору
