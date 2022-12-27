@@ -28,6 +28,7 @@ namespace VoiceTexterBot
 
         static void ConfigureServices(IServiceCollection services)
         {
+            
             //И обновим метод ConfigureServices(...), добавив инициализацию конфигурации в его начало:
             AppSettings appSettings = BuildAppSettings();
             services.AddSingleton(BuildAppSettings());
@@ -41,14 +42,19 @@ namespace VoiceTexterBot
             // Регистрируем объект TelegramBotClient c токеном подключения
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("5859120837:AAGLzs6dhvK-4arrx4O_vulUlZRmZEC9FPg"));
             // Регистрируем постоянно активный сервис бота
-            services.AddHostedService<Bot>(); 
+            services.AddHostedService<Bot>();
+            services.AddSingleton<IFileHandler, AudioFileHandler>();
         }
 
         static AppSettings BuildAppSettings()
         {
             return new AppSettings()
             {
-                BotToken = "5859120837:AAGLzs6dhvK-4arrx4O_vulUlZRmZEC9FPg"
+                DownloadsFolder = "C:\\Users\\user\\Desktop\\IT\\Code\\TelegramBot\\VoiceTexterBot\\Downloads",
+                BotToken = "5859120837:AAGLzs6dhvK-4arrx4O_vulUlZRmZEC9FPg",
+                AudioFileName = "audio",
+                InputAudioFormat = "ogg",
+                OutputAudioFormat = "wav",
             };
         }
     }

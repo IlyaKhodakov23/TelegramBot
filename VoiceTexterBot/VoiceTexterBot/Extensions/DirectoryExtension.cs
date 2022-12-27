@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace VoiceTexterBot.Extensions
 {
+    //вспомогательные классы
+    //позволит нам получить путь до корневого каталога солюшена:
     public static class DirectoryExtension
     {
         /// <summary>

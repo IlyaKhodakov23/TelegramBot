@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace VoiceTexterBot.Extensions
 {
+    //вспомогательные классы
+    //будет изменять строки, чтобы они начинались с заглавной буквы.
     public static class StringExtension
     {
         /// <summary>
